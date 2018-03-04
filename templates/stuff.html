@@ -1,0 +1,20 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stuff</title>
+    <script type="text/javascript" src="{% static "channels/js/websocketbridge.js" %}"></script>
+</head>
+<body>
+    <pre id="stuff"></pre>
+    <script type="text/javascript">
+        const webSocketBridge = new channels.WebSocketBridge();
+        webSocketBridge.connect('/stuff/');
+        webSocketBridge.listen(function(action, stream) {
+            document.getElementById("stuff").innerText = action.content + "\n" + document.getElementById("stuff").innerText;
+        });
+    </script>
+</body>
+</html>
