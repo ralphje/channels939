@@ -1,4 +1,4 @@
 Django==2.0.2
 channels==2.0.2
 daphne==2.0.4
-channels_redis==2.1.0
+channels_redis==2.1.1
